@@ -1,0 +1,221 @@
+/* font-family: "MyriadProRegular"; */
+@font-face {
+    font-family: "MyriadProRegular";
+    src: url("../fonts/MyriadProRegular/MyriadProRegular.eot");
+    src: url("../fonts/MyriadProRegular/MyriadProRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/MyriadProRegular/MyriadProRegular.woff") format("woff"),
+    url("../fonts/MyriadProRegular/MyriadProRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* end font-family */
+/* reset browser styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol,
+ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details,
+embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+/* end reset browser styles */
+*{
+    box-sizing: border-box;
+}
+body{
+    max-width: 675px;
+    margin: 0 auto;
+    color: #093500;
+    font-family: Tahoma, Arial, sans-serif;
+}
+.header{
+    height: 80px;
+    background-image: linear-gradient(#769715, #99cc01);
+    padding-left: 35px;
+    line-height: 80px;
+    font-size: 2.2rem;
+    color: #fff;
+}
+h1, h2, h4{
+    font-weight: normal;
+    font-family: Helvetica, Arial, sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.nav ul{
+    font-family: MyriadProRegular, Tahoma, Arial, sans-serif;
+    display: table;
+    width: 100%;
+    padding: 0;
+    height: 78px;
+    font-weight: normal;
+}
+ul li{
+    display: table-cell;
+    list-style-type: none;
+    background: url(../img/arrow_nav.png) 0 55% no-repeat;
+}
+ul li:first-of-type{
+	background: none;	
+}
+.nav li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 78px;
+    text-align: center;
+    text-decoration: none;
+    color: #093500;
+    font-size: 1.25rem;   
+}
+.nav li a:hover{
+    transform: scale(1.2);
+}
+.flaskImg{
+    position: absolute;
+    left: 17px; 
+}
+.welcome{
+    position: relative;
+    height: auto;
+    background: #eeeffb;
+}
+.welcome h2{
+    font-size: 2.2rem;
+    padding-top: 22px;
+    margin-left: 270px;
+    font-weight: normal;
+}
+.welcome p{
+    margin-left: 320px;
+    padding-right: 20px;
+    padding-top: 18px;
+}
+p b{
+    color: #80a60f;
+    font-size: 0.7rem;
+}
+p{
+    font-size: 0.65rem;
+    line-height: 140%;
+}
+.about{
+    float: left;
+    width: 38%;
+    margin-top: 17px;
+    padding-left: 25px;
+    border-right: 1px solid #eeeefb;
+}
+.about h4, .wrapContent h4{
+    padding-bottom: 20px;
+}
+.about p{
+    padding-bottom: 12px;
+    padding-right: 20px;
+}
+.wrapContent{
+    float: right;
+    width: 62%;
+    padding-left: 20px;
+}
+h4{
+    font-size: 1.1rem;
+}
+.wrapContent img{
+    float: left;
+    clear: right;
+    padding-right: 20px;
+    padding-bottom: 15px;
+}
+.research, .service{
+    padding: 15px 15px 15px 0;
+}
+.research{
+    border-bottom: 1px solid #eeeefb;
+}
+.footer{
+    clear: both;
+    border-top: 5px solid #eeeefb;
+    font-size: 0.65rem;
+    padding-left: 25px;
+    height: 60px;
+    line-height: 60px;
+}
+@media (max-width: 480px){
+    .header{
+        text-align: center;
+        padding: 0;
+    }
+    .nav ul{
+        display: block;
+        height: 100%;
+    }
+    ul li{
+        display: block;
+        height: 30px;
+        background: none;
+    }
+    .nav li a{
+        line-height: 30px;
+    }
+    .navArrow{
+        background: none;
+    }
+    .flaskImg{
+        position: static;
+    }
+    .welcome{
+        height: auto;
+    }
+    .welcome h2{
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+    .welcome p{
+        margin: 0;
+        padding: 10px 10px 10px 20px;
+    }
+    .about{
+        float: none;
+        width: auto;
+        margin: 0;
+        padding: 10px;
+        border-right: none;
+    }
+    .about p{
+        padding-bottom: 12px;
+        padding-right: 10px;
+    }
+    .wrapContent{
+        float: none;
+        width: auto;
+        padding-left: 10px;
+    }
+    .research, .about{
+        border-bottom: 2px solid #eeeefb;
+    }
+}
