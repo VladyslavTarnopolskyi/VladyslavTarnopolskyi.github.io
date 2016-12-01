@@ -1,0 +1,45 @@
+body{
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+}
+input[type='text']{
+    padding: 20px;
+    border: none;
+    font-size: 28px;
+}
+#todo-list{
+    margin: 0;
+    padding: 0;
+}
+#add-press{
+    font-size: 28px;
+}
+#add-press:hover{
+    background: #8bca36;
+}
+#clear:hover{
+    background: red;
+}
+li{
+    text-align: left;
+    list-style: none;
+}
+li button{
+    float: right;
+}
+li input[type='checkbox']{
+    margin-right: 24px;
+}
+.task{
+    text-align: left;
+    color: #093500;
+}
+#edit{
+    border: 1px solid black;
+    display: none;
+}
+.checked{
+    text-decoration: line-through;
+}
