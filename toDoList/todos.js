@@ -9,13 +9,17 @@ window.addEventListener('load', function () {
         }
         return todoStorage;
     }
+
     document.getElementById('add-press').addEventListener('click', newToDo);
     function newToDo() {
         var item = document.getElementById('todo-enter').value;
-        var allToDo = getToDo();
-        allToDo.push(item);
-        localStorage.setItem('id', JSON.stringify(allToDo));
-        console.log(allToDo);
+        if(item === ''){
+            alert('write something')
+        } else {
+            var allToDo = getToDo();
+            allToDo.push(item);
+            localStorage.setItem('id', JSON.stringify(allToDo));
+        }
         showMustGoOn();
         counter();
     }
@@ -55,7 +59,6 @@ window.addEventListener('load', function () {
         var delet = this.parentNode.getAttribute('id');
         todoStorage.splice(delet, 1);
         localStorage.setItem('id', JSON.stringify(todoStorage));
-        //var allTasks = document.getElementsByTagName('li');
         showMustGoOn();
         counter();
     }
@@ -71,26 +74,30 @@ window.addEventListener('load', function () {
         var ch = event.target;
         if (ch.tagName == 'INPUT') {
             ch.parentNode.classList.toggle('checked');
-            counter();
         }
+        counter();
     }
 
-    function edit(even) {
+    function edit(e) {
+        var todoStorage = getToDo();
         var modal = document.getElementById('edit');
         modal.style.display = "block";
         var input = document.getElementById('copyLi');
-        var span = even.target.parentNode.lastChild;
-        console.log(span);
-        input.value = span.innerHTML;
+        var span = e.target.parentNode.lastChild;
+        var li = event.target.parentElement;
+        var id = li.getAttribute('id');
+        input.value = li.getElementsByTagName('span')[0].innerHTML;
         document.getElementById('save').onclick = function (event) {
             var div = event.target.parentNode;
             var input = div.querySelector('input');
-            span.innerHTML = input.value;
+            todoStorage[id] = input.value;
+            localStorage.setItem('id', JSON.stringify(todoStorage));
             modal.style.display = "none";
-        };
-        document.getElementById('cancel').onclick = function () {
-            modal.style.display = "none";
-        };
+            showMustGoOn();
+            document.getElementById('cancel').onclick = function () {
+                modal.style.display = "none";
+            }
+        }
     }
 
     var btnEnter = document.getElementById('add-press');
@@ -107,5 +114,7 @@ window.addEventListener('load', function () {
         while (elements.firstChild) {
             elements.removeChild(elements.firstChild);
         }
+        window.localStorage.clear();
+        location.reload();
     });
 });
