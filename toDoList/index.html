@@ -5,6 +5,32 @@
     <title>Todos Homework5</title>
     <link rel="stylesheet" href="style.css" />
     <script src="todos.js"></script>
+    <script>
+        var source;
+        function isbefore(a, b) {
+            if (a.parentNode == b.parentNode) {
+                for (var cur = a; cur; cur = cur.previousSibling) {
+                    if (cur === b) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        function dragEnter(e) {
+            if (isbefore(source, e.target)) {
+                e.target.parentNode.insertBefore(source, e.target);
+            }
+            else {
+                e.target.parentNode.insertBefore(source, e.target.nextSibling);
+            }
+        }
+        function dragStart(e) {
+            source = e.target;
+            e.dataTransfer.effectAllowed = 'move';
+
+        }
+    </script>
 </head>
 <body>
 <h1>ToDo List</h1>

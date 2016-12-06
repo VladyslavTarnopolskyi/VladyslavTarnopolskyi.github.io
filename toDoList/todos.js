@@ -44,6 +44,9 @@ window.addEventListener('load', function () {
             newLi.appendChild(sel);
             newLi.appendChild(newDel);
             newLi.appendChild(newEdit);
+            newLi.setAttribute('draggable', 'true');
+            newLi.setAttribute('ondragenter', 'dragEnter(event)');
+            newLi.setAttribute('ondragstart', 'dragStart(event)');
             span.innerHTML = todoStorage[i];
             newLi.appendChild(span);
             newLi.id = i;

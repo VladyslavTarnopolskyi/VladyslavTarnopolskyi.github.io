@@ -25,6 +25,9 @@ input[type='text']{
 li{
     text-align: left;
     list-style: none;
+    background-color: lightgrey;
+    border: 1px solid #999;
+    margin: 2px;
 }
 li button{
     float: right;
