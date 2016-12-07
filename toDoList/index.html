@@ -5,49 +5,25 @@
     <title>Todos Homework5</title>
     <link rel="stylesheet" href="style.css" />
     <script src="todos.js"></script>
-    <script>
-        var source;
-        function isbefore(a, b) {
-            if (a.parentNode == b.parentNode) {
-                for (var cur = a; cur; cur = cur.previousSibling) {
-                    if (cur === b) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        function dragEnter(e) {
-            if (isbefore(source, e.target)) {
-                e.target.parentNode.insertBefore(source, e.target);
-            }
-            else {
-                e.target.parentNode.insertBefore(source, e.target.nextSibling);
-            }
-        }
-        function dragStart(e) {
-            source = e.target;
-            e.dataTransfer.effectAllowed = 'move';
-
-        }
-    </script>
 </head>
 <body>
-<h1>ToDo List</h1>
-<div>
-    <input type="text" id="todo-enter" placeholder="Enter text"  />
-    <input type="button" value="Enter" id="add-press" />
-    <input type="button" value="Clear list" id="clear" />
-</div>
-<ul id="todo-list"></ul>
-<div class="task">Done Item: <span id="counter"></span></div>
-<div class="task">Not Done Item: <span id="counterOfNotDone"></span></div>
-<div id="edit">
-    <div id="'popup">
-        <input type="text" id="copyLi" />
-        <button id="save">Save</button>
-        <button id="cancel">Cancel</button>
+    <div class="wrapper">
+        <h1>ToDo List</h1>
+        <div>
+            <input type="text" id="todo-enter" placeholder="Enter text"  />
+            <input type="button" value="Enter" id="add-press" />
+            <input type="button" value="Clear list" id="clear" />
+        </div>
+        <div class="task">Done Item: <span id="counter"></span></div>
+        <div class="task">Not Done Item: <span id="counterOfNotDone"></span></div>
+        <ul id="todo-list"></ul>
+        <div id="edit">
+            <div id="'popup">
+                <input type="text" id="copyLi" />
+                <button id="save">Save</button>
+                <button id="cancel">Cancel</button>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>

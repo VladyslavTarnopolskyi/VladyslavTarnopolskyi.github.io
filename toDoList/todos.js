@@ -38,6 +38,7 @@ window.addEventListener('load', function () {
             newDel.textContent = 'X';
             newDel.className = "button-delete";
             newEdit.textContent = 'Edit';
+            newEdit.className = 'button-edit';
             newEdit.addEventListener('click', edit);
             var sel = document.createElement('input');
             sel.type = 'checkbox';
@@ -45,8 +46,7 @@ window.addEventListener('load', function () {
             newLi.appendChild(newDel);
             newLi.appendChild(newEdit);
             newLi.setAttribute('draggable', 'true');
-            newLi.setAttribute('ondragenter', 'dragEnter(event)');
-            newLi.setAttribute('ondragstart', 'dragStart(event)');
+            newLi.className = 'box';
             span.innerHTML = todoStorage[i];
             newLi.appendChild(span);
             newLi.id = i;
@@ -55,6 +55,47 @@ window.addEventListener('load', function () {
             sel.addEventListener('click', selectItem);
             document.getElementById('todo-enter').value = '';
         }
+    }
+
+    var dragNDrop = document.getElementsByClassName('box');
+    for (var i = 0; i < dragNDrop.length; i++){
+        dragNDrop[i].addEventListener('dragstart', dragStart);
+        dragNDrop[i].addEventListener('dragenter', dragEnter);
+        dragNDrop[i].addEventListener('dragover', dragOver);
+        dragNDrop[i].addEventListener('dragend', dragEnd);
+    }
+
+    var source;
+    function isBefore(a, b) {
+        if (a.parentNode == b.parentNode) {
+            for (var cur = a; cur; cur = cur.previousSibling) {
+                if (cur === b) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    function dragStart(e) {
+        source = e.target;
+        e.dataTransfer.effectAllowed = 'move';
+    }
+
+    function dragOver(ev){
+        ev.target.style.border = '2px dashed #7ACA1C';
+        ev.target.style.opacity = .5;
+    }
+    function dragEnd(ev) {
+        ev.target.style.border = '2px solid #7ACA1C';
+        ev.target.style.opacity = "";
+    }
+    function dragEnter(e) {
+        if (isBefore(source, e.target)) {
+            e.target.parentNode.insertBefore(source, e.target);
+        } else {
+            e.target.parentNode.insertBefore(source, e.target.nextSibling);
+        }
+
     }
 
     function delItem() {
