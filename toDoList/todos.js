@@ -54,15 +54,14 @@ window.addEventListener('load', function () {
             newDel.addEventListener('click', delItem);
             sel.addEventListener('click', selectItem);
             document.getElementById('todo-enter').value = '';
+            var dragNDrop = document.getElementsByClassName('box');
+            for (var j = 0; j < dragNDrop.length; j++){
+                dragNDrop[j].addEventListener('dragstart', dragStart);
+                dragNDrop[j].addEventListener('dragenter', dragEnter);
+                dragNDrop[j].addEventListener('dragover', dragOver);
+                dragNDrop[j].addEventListener('dragend', dragEnd);
+            }
         }
-    }
-
-    var dragNDrop = document.getElementsByClassName('box');
-    for (var i = 0; i < dragNDrop.length; i++){
-        dragNDrop[i].addEventListener('dragstart', dragStart);
-        dragNDrop[i].addEventListener('dragenter', dragEnter);
-        dragNDrop[i].addEventListener('dragover', dragOver);
-        dragNDrop[i].addEventListener('dragend', dragEnd);
     }
 
     var source;
