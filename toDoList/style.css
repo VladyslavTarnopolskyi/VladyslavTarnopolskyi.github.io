@@ -64,7 +64,6 @@ li input[type='checkbox']{
 [draggable]{
     user-select: none;
 }
-
 /*  popup  */
 #edit {
     display: none;

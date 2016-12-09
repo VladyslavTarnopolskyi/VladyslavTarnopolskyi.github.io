@@ -79,7 +79,6 @@ window.addEventListener('load', function () {
         source = e.target;
         e.dataTransfer.effectAllowed = 'move';
     }
-
     function dragOver(ev){
         ev.target.style.border = '2px dashed #7ACA1C';
         ev.target.style.opacity = .5;
